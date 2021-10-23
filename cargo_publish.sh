@@ -3,11 +3,11 @@
 set -euxo pipefail
 
 (cd src/proc_macros
-    cargo publish
+    cargo +stable publish
 )
 
 for i in $(seq 10)
 do
-    cargo publish && break
+    cargo +stable publish && break
     sleep 5
 done
