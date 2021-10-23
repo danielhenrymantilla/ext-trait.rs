@@ -9,5 +9,5 @@ set -euxo pipefail
 for i in $(seq 10)
 do
     cargo publish && break
-    sleep 4
+    sleep 5
 done
