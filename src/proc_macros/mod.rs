@@ -123,11 +123,24 @@ fn extension_impl (
             defaultness: default_,
             sig,
             ..
-        }) => quote!(
-            #pub_
-            #default_
-            #sig;
-        ),
+        }) => {
+            let mut sig = sig.clone();
+            sig.inputs.iter_mut().for_each(|fn_arg| match fn_arg {
+                | FnArg::Receiver(Receiver { reference, mutability, .. }) => {
+                    if reference.is_none() {
+                        *mutability = None;
+                    }
+                },
+                | FnArg::Typed(PatType { pat, .. }) => {
+                    *pat = parse_quote!( _ );
+                },
+            });
+            quote!(
+                #pub_
+                #default_
+                #sig;
+            )
+        },
 
         | ImplItem::Type(ImplItemType {
             vis: pub_,

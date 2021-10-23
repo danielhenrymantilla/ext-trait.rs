@@ -4,22 +4,35 @@
 #![no_std]
 #![forbid(unsafe_code)]
 
-#[cfg(COMMENTED_OUT)] // <- Remove this when used!
-/// The crate's prelude.
-pub
-mod prelude {
-    // …
-}
+/// See [the main docs][crate] for more info.
+///
+/// ## Advanced features
+///
+/// ### Extending the trait's privacy
+///
+/// This can be achieved by prepending a `pub` annotation before the
+/// `trait Name` argument:
+///
+/// ```rust ,no_run
+/// #[macro_use]
+/// extern crate ext_trait;
+///
+/// mod lib {
+///     //          vvv
+///     #[extension(pub trait NoOp)]
+///     impl<T> T {
+///         fn no_op(self) -> Self { self }
+///     }
+/// }
+///
+/// fn main ()
+/// {
+///     use lib::NoOp;
+///     let x = 42.no_op().no_op().no_op().no_op().no_op().no_op();
+/// }
+/// ```
 
-#[doc(inline)]
-pub use ::ext_trait_proc_macros::*;
-
-// To get fancier docs, for each exported procedural macro, put the docstring
-// here, on the re-export, rather than on the proc-macro function definition.
-// Indeed, this way, the internal doc links will Just Work™.
-#[cfg(COMMENTED_OUT)] // <- Remove this when used!
-/// Docstring for the proc-macro.
-pub use ::ext_trait_proc_macros::some_macro_name;
+pub use ::ext_trait_proc_macros::extension;
 
 // macro internals
 #[doc(hidden)] /** Not part of the public API */ pub
