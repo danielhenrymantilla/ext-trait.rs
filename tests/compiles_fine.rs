@@ -43,3 +43,15 @@ fn context ()
         | Err(s) => assert!(s.starts_with("Test: ")),
     }
 }
+
+#[test]
+fn all_the_assocs ()
+{
+    #[extension(trait Assocs)]
+    impl<T> T {
+        type AssocTy = Option<T>;
+        const FOO: Self::AssocTy = None;
+    }
+
+    let _: <() as Assocs<_>>::AssocTy = <()>::FOO;
+}
