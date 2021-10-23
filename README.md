@@ -71,7 +71,7 @@ https://github.com/danielhenrymantilla/ext-trait.rs/actions)
       -> Result<(), Box<dyn Error>>
     {
         let some_dir = PathBuf::from(::std::env::var("MY_LIB_SOME_DIR")?);
-        // Contray to chaining `.join()`, this reuses the memory!
+        // Contrary to chaining `.join()`, this reuses the memory!
         let some_subdir = some_dir.with("some").with("sub").with("dir");
         // …
         Ok(())
