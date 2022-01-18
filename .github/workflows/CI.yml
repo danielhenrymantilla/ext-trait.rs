@@ -7,6 +7,16 @@ on:
   pull_request:
 
 jobs:
+  check-readme-is-up-to-date:
+    name: "Check the `README.md` is up to date"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+
+      - run: extension-traits/gen_readme.py
+
+      - run: git diff --exit-code
   # == CHECK == #
   check:
     name: "Check beta stable and MSRV=1.42.0"
@@ -43,7 +53,7 @@ jobs:
   build-and-test:
     name: Build and test
     runs-on: ${{ matrix.os }}
-    needs: [check]
+    needs: ['check', 'check-readme-is-up-to-date']
     strategy:
       fail-fast: false
       matrix:

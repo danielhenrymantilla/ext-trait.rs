@@ -19,6 +19,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "extension-traits"
+version = "1.0.0"
+dependencies = [
+ "ext-trait",
+]
+
+[[package]]
 name = "proc-macro2"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
