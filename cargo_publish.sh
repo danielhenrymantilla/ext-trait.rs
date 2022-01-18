@@ -11,3 +11,9 @@ do
     cargo +stable publish && break
     sleep 5
 done
+
+for i in $(seq 10)
+do
+    (cd extension-traits && cargo +stable publish) && break
+    sleep 5
+done
