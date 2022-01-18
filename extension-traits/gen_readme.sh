@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
@@ -9,5 +9,5 @@ sed -E \
     -e 's/ext([-_])trait/extension\1traits/g' \
     -e 's/PLACEHOLDER/ext-trait.rs/g' \
     README.md \
-    >> extension-traits/README.md \
+    > extension-traits/README.md \
 ;
