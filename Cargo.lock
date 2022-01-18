@@ -4,14 +4,14 @@ version = 3
 
 [[package]]
 name = "ext-trait"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "ext-trait-proc_macros",
 ]
 
 [[package]]
 name = "ext-trait-proc_macros"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -20,7 +20,7 @@ dependencies = [
 
 [[package]]
 name = "extension-traits"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "ext-trait",
 ]
