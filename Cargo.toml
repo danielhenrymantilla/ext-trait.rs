@@ -25,6 +25,7 @@ path = "src/proc_macros"
 version = "1.0.1"  # Keep in sync
 
 [dev-dependencies]
+async-trait = "0.1.81"
 
 [workspace]
 members = [
