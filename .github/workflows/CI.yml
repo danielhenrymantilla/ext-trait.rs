@@ -19,12 +19,12 @@ jobs:
       - run: git diff --exit-code
   # == CHECK == #
   check:
-    name: "Check beta stable and MSRV=1.42.0"
+    name: "Check beta stable and MSRV=1.79.0"
     runs-on: ubuntu-latest
     strategy:
       matrix:
         rust-toolchains:
-          - 1.42.0
+          - 1.79.0
           - stable
           - beta
         cargo-locked: ["--locked", ""]
@@ -62,7 +62,7 @@ jobs:
           - macos-latest
           - windows-latest
         rust-toolchains:
-          - 1.42.0
+          - 1.79.0
           - stable
     steps:
       - name: Install Rust toolchain
