@@ -15,7 +15,7 @@ dependencies = [
 
 [[package]]
 name = "ext-trait"
-version = "2.0.0-rc1"
+version = "2.0.0"
 dependencies = [
  "async-trait",
  "ext-trait-proc_macros",
@@ -23,7 +23,7 @@ dependencies = [
 
 [[package]]
 name = "ext-trait-proc_macros"
-version = "2.0.0-rc1"
+version = "2.0.0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -32,7 +32,7 @@ dependencies = [
 
 [[package]]
 name = "extension-traits"
-version = "2.0.0-rc1"
+version = "2.0.0"
 dependencies = [
  "ext-trait",
 ]
