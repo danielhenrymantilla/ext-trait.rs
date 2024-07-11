@@ -55,3 +55,20 @@ fn all_the_assocs ()
 
     let _: <() as Assocs<_>>::AssocTy = <()>::FOO;
 }
+
+#[test]
+fn attrs ()
+{
+    #[extension(trait Inline)]
+    impl<T> T {
+        #[inline]
+        fn foo(&self) {}
+    }
+
+    use ::async_trait::async_trait;
+    #[extension(trait Async)]
+    #[async_trait(?Send)]
+    impl<T> T {
+        async fn foo(&self) {}
+    }
+}

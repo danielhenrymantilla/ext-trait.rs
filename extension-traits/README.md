@@ -8,7 +8,7 @@ https://github.com/danielhenrymantilla/ext-trait.rs)
 https://crates.io/crates/extension-traits)
 [![Documentation](https://docs.rs/extension-traits/badge.svg)](
 https://docs.rs/extension-traits)
-[![MSRV](https://img.shields.io/badge/MSRV-1.42.0-white)](
+[![MSRV](https://img.shields.io/badge/MSRV-1.79.0-white)](
 https://gist.github.com/danielhenrymantilla/8e5b721b3929084562f8f65668920c33)
 [![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](
 https://github.com/rust-secure-code/safety-dance/)
