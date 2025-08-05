@@ -7,7 +7,7 @@ name = "ext-trait-proc_macros"
 authors = [
     "Daniel Henry-Mantilla <daniel.henry.mantilla@gmail.com>"
 ]
-version = "2.0.0"  # Keep in sync
+version = "2.0.1"  # Keep in sync
 edition = "2018"
 
 license = "Zlib OR MIT OR Apache-2.0"
@@ -19,7 +19,7 @@ description = "Internal: proc-macro backend of ::ext_trait."
 [dependencies]
 proc-macro2.version = "1.0.0"
 quote.version = "1.0.0"
-syn.version = "1.0.7"  # Access to `receiver()`.
+syn.version = "2.0.46"  # Access to `receiver()`.
 syn.features = [
     "full",
 ]

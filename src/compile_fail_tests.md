@@ -54,7 +54,7 @@ impl<T> Option<T> {
 mod scoped {
     use ::ext_trait::*;
 
-#[extension(trait Foo)]
+    #[extension(trait Foo)]
     impl () {}
 }
 use scoped::Foo;

@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 #[macro_use] extern crate ext_trait;
 
 #[test]
