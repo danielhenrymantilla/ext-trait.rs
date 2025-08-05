@@ -2,29 +2,29 @@
 
 #[test]
 fn empty () {
-    #[extension(trait Foo)]
+    #[extension(trait _Foo)]
     impl () {}
 
-    #[extension(trait Bar)]
+    #[extension(trait _Bar)]
     impl<> () {}
 
-    #[extension(trait Baz)]
+    #[extension(trait _Baz)]
     impl () where Self : Copy {}
 
-    #[extension(trait Quux)]
+    #[extension(trait _Quux)]
     impl<T> () where T : ?Sized {
         type Assoc = T;
     }
 
     mod scoped {
-        #[extension(pub trait Pub)]
+        #[extension(pub trait _Pub)]
         impl () {}
 
-        #[extension(pub(crate) trait PubCrate)]
+        #[extension(pub(crate) trait _PubCrate)]
         impl () {}
     }
-    impl dyn scoped::Pub {}
-    impl dyn scoped::PubCrate {}
+    impl dyn scoped::_Pub {}
+    impl dyn scoped::_PubCrate {}
 }
 
 #[test]
@@ -59,14 +59,14 @@ fn all_the_assocs ()
 #[test]
 fn attrs ()
 {
-    #[extension(trait Inline)]
+    #[extension(trait _Inline)]
     impl<T> T {
         #[inline]
         fn foo(&self) {}
     }
 
     use ::async_trait::async_trait;
-    #[extension(trait Async)]
+    #[extension(trait _Async)]
     #[async_trait(?Send)]
     impl<T> T {
         async fn foo(&self) {}
