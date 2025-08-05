@@ -1,30 +1,32 @@
+#![allow(unused)]
+
 #[macro_use] extern crate ext_trait;
 
 #[test]
 fn empty () {
-    #[extension(trait _Foo)]
+    #[extension(trait Foo)]
     impl () {}
 
-    #[extension(trait _Bar)]
+    #[extension(trait Bar)]
     impl<> () {}
 
-    #[extension(trait _Baz)]
+    #[extension(trait Baz)]
     impl () where Self : Copy {}
 
-    #[extension(trait _Quux)]
+    #[extension(trait Quux)]
     impl<T> () where T : ?Sized {
         type Assoc = T;
     }
 
     mod scoped {
-        #[extension(pub trait _Pub)]
+        #[extension(pub trait Pub)]
         impl () {}
 
-        #[extension(pub(crate) trait _PubCrate)]
+        #[extension(pub(crate) trait PubCrate)]
         impl () {}
     }
-    impl dyn scoped::_Pub {}
-    impl dyn scoped::_PubCrate {}
+    impl dyn scoped::Pub {}
+    impl dyn scoped::PubCrate {}
 }
 
 #[test]
@@ -59,14 +61,14 @@ fn all_the_assocs ()
 #[test]
 fn attrs ()
 {
-    #[extension(trait _Inline)]
+    #[extension(trait Inline)]
     impl<T> T {
         #[inline]
         fn foo(&self) {}
     }
 
     use ::async_trait::async_trait;
-    #[extension(trait _Async)]
+    #[extension(trait Async)]
     #[async_trait(?Send)]
     impl<T> T {
         async fn foo(&self) {}
