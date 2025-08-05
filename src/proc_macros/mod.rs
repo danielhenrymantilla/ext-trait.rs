@@ -126,7 +126,7 @@ fn extension_impl (
             )
         }
 
-        | ImplItem::Method(ImplItemMethod {
+        | ImplItem::Fn(ImplItemFn {
             vis: pub_,
             defaultness: default_,
             sig,
@@ -225,7 +225,7 @@ fn attrs_to_forward_to_impl_block(
     ];
 
     trait_attrs.iter().filter(|attr| IMPL_BLOCK_ATTRS_ALLOW_LIST.iter().any(|ident| {
-        attr.path.is_ident(ident)
+        attr.path().is_ident(ident)
     })).cloned().collect()
 }
 
@@ -238,6 +238,6 @@ fn attrs_to_forward_to_trait_items(
     ];
 
     impl_block_assoc_item_attrs.iter().filter(|attr| TRAIT_ITEMS_ATTRS_DENY_LIST.iter().all(|ident| {
-        attr.path.is_ident(ident).not()
+        attr.path().is_ident(ident).not()
     })).collect()
 }
