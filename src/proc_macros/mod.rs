@@ -142,7 +142,20 @@ fn extension_impl (
                     }
                 },
                 | FnArg::Typed(PatType { pat, .. }) => {
-                    *pat = parse_quote!( _ );
+                    // Avoid `patterns_in_fns_without_body`, see
+                    // <https://github.com/rust-lang/rust/issues/35203>
+                    if let Pat::Ident(PatIdent { ident: arg_name, .. }) = &mut **pat {
+                        // We don't use full `_` discard here, so as to preserve the given
+                        // ident, for the sake of docs and autocomplete.
+                        // See <https://github.com/danielhenrymantilla/ext-trait.rs/issues/10>.
+                        **pat = parse_quote!(
+                            #arg_name
+                        );
+                    } else {
+                        **pat = parse_quote_spanned!(pat.span()=>
+                            _
+                        );
+                    }
                 },
             });
             quote!(
