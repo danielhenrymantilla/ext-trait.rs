@@ -1,6 +1,6 @@
 [package]
 name = "extension-traits"
-version = "2.0.3-rc1"  # Keep in sync
+version = "0.2.3"  # Keep in sync
 authors = ["Daniel Henry-Mantilla <daniel.henry.mantilla@gmail.com>"]
 edition = "2018"
 
@@ -18,7 +18,7 @@ better-docs = []  # allowed to break MSRV
 [dependencies.ext-trait-renamed]
 package = "ext-trait"
 path = ".."
-version = "2.0.3-rc1"  # Keep in sync
+version = "0.2.3"  # Keep in sync
 
 [package.metadata.docs.rs]
 all-features = true
