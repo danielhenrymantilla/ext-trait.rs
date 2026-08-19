@@ -34,12 +34,6 @@
 
 pub use ::ext_trait_proc_macros::extension;
 
-// macro internals
-#[doc(hidden)] /** Not part of the public API */ pub
-mod __ {
-    pub use ::core;
-}
-
 #[cfg_attr(feature = "ui-tests",
     cfg_attr(all(), doc = include_str!("compile_fail_tests.md")),
 )]

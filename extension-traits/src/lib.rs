@@ -5,4 +5,4 @@
 #![forbid(unsafe_code)]
 
 #[doc(inline)]
-pub use ::ext_trait::extension;
+pub use ::ext_trait_renamed::extension;
