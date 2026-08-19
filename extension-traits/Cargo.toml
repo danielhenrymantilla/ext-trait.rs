@@ -15,7 +15,8 @@ keywords = ["extension", "trait", "custom", "method", "impl"]
 [features]
 better-docs = []  # allowed to break MSRV
 
-[dependencies.ext-trait]
+[dependencies.ext-trait-renamed]
+package = "ext-trait"
 path = ".."
 version = "2.0.3-rc1"  # Keep in sync
 
