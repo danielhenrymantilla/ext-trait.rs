@@ -183,7 +183,7 @@ fn extension_impl (
                 #default_
                 #type_ #TypeName #generics
                 :
-                    ?::ext_trait::__::core::marker::Sized
+                    ?::core::marker::Sized
                 #SEMICOLON
             )
         },

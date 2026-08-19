@@ -6,14 +6,6 @@ set -euxo pipefail
     cargo publish
 )
 
-for i in $(seq 10)
-do
-    cargo publish && break
-    sleep 5
-done
+cargo publish
 
-for i in $(seq 10)
-do
-    (cd extension-traits && cargo publish) && break
-    sleep 5
-done
+(cd extension-traits && cargo publish)
